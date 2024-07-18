@@ -1,3 +1,3 @@
 # Public-Testbed
 
-This is a [test](BI 7100 Live Syllabus.pdf).
+This is a [test with a link](BI 7100 Live Syllabus.pdf).
