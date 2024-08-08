@@ -17,7 +17,7 @@
             <ul>
                 <!-- Loop through all pages -->
                 {% for page in site.pages %}
-                    {% unless page.url == "/" or page.url == "/Scratchpad.html" %}
+                    {% unless page.url == "/" or page.url == "/Scratchpad.html" or page.url == "/redirects.json" %}
                         <li><a href="{{ page.url }}">{{ page.url }}</a></li>
                     {% endunless %}
                 {% endfor %}
