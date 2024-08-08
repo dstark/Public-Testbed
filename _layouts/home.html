@@ -24,7 +24,7 @@
 
                 <!-- Loop through all static files (including PDFs) -->
                 {% for file in site.static_files %}
-                    {% unless file.path contains 'assets/' %}
+                    {% unless file.path contains '/assets/' or file.path == '/redirects.json' %}
                         {% if file.extname == ".pdf" or site.show_downloads %}
                             <li><a href="{{ file.path }}">{{ file.path | remove_first: "/" }}</a></li>
                         {% endif %}
@@ -38,4 +38,4 @@
         </footer>
     </div>
 </body>
-</html
+</html>
