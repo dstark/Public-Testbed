@@ -24,14 +24,18 @@
 
                 <!-- Loop through all static files (including PDFs) or file.path contains '/assets/css/' -->
                 {% for file in site.static_files %}
-                    {% unless file.path contains 'foo' %}
+                    <!-- {% unless file.path contains 'foo' %} -->
                         {% if file.extname == ".pdf" or site.show_downloads %}
                             <li><a href="{{ file.path }}">{{ file.path | remove_first: "/" }}</a></li>
                         {% endif %}
-                    {% endunless %}
+                    <!-- {% endunless %} -->
                 {% endfor %}
             </ul>
         </main>
+        
+        <footer>
+            <p>For more content, see <a href="https://www.jdavidstark.com">my full main site</a>.
+        </footer>
     </div>
 </body>
 </html>
