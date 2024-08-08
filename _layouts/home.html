@@ -17,14 +17,14 @@
             <ul>
                 <!-- Loop through all pages -->
                 {% for page in site.pages %}
-                    {% unless page.url == "/" or page.url == "/Scratchpad.html" or page.url == "/redirects.json" %}
+                    {% unless page.url == "/" or page.url == "/redirects.json" or page.url == "/Scratchpad.html" or page.url == "style.css" %}
                         <li><a href="{{ page.url }}">{{ page.url }}</a></li>
                     {% endunless %}
                 {% endfor %}
 
                 <!-- Loop through all static files (including PDFs) -->
                 {% for file in site.static_files %}
-                    {% unless file.path contains '/assets/' or file.path == '/redirects.json' %}
+                    {% unless file.path contains '/assets/' %}
                         {% if file.extname == ".pdf" or site.show_downloads %}
                             <li><a href="{{ file.path }}">{{ file.path | remove_first: "/" }}</a></li>
                         {% endif %}
