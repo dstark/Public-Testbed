@@ -4,9 +4,9 @@
 @import "{{ site.theme }}";
 
 footer {
-  display: none;
+  display: none !important;
 }
 
 header {
-  display: contents;
+  display: contents !important;
 }
