@@ -4,25 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }}</title>
+    <!-- Applying the theme styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-    <h1>{{ site.title }}</h1>
+    <div class="wrapper">
+        <header>
+            <h1>{{ site.title }}</h1>
+        </header>
 
-    <ul>
-        <!-- Loop through all pages -->
-        {% for page in site.pages %}
-            {% unless page.url == "/" or page.url == "/excluded-page.html" %}
-                <li><a href="{{ page.url }}">{{ page.url }}</a></li>
-            {% endunless %}
-        {% endfor %}
+        <main>
+            <ul>
+                <!-- Loop through all pages -->
+                {% for page in site.pages %}
+                    {% unless page.url == "/" or page.url == "/excluded-page.html" %}
+                        <li><a href="{{ page.url }}">{{ page.url }}</a></li>
+                    {% endunless %}
+                {% endfor %}
 
-        <!-- Loop through all static files (including PDFs) -->
-        {% for file in site.static_files %}
-            {% unless file.extname == ".html" and file.url == "/" or file.url == "/excluded-page.html" %}
-                <li><a href="{{ file.path }}">{{ file.path | remove_first: "/" }}</a></li>
-            {% endunless %}
-        {% endfor %}
-    </ul>
+                <!-- Loop through all static files (including PDFs) -->
+                {% for file in site.static_files %}
+                    {% if file.extname == ".pdf" or site.show_downloads %}
+                        <li><a href="{{ file.path }}">{{ file.path | remove_first: "/" }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </main>
 
+        <footer>
+            <p>Powered by Jekyll &amp; GitHub Pages</p>
+        </footer>
+    </div>
 </body>
 </html>
