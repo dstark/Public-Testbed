@@ -24,9 +24,11 @@
 
                 <!-- Loop through all static files (including PDFs) -->
                 {% for file in site.static_files %}
-                    {% if file.extname == ".pdf" or site.show_downloads %}
-                        <li><a href="{{ file.path }}">{{ file.path | remove_first: "/" }}</a></li>
-                    {% endif %}
+                    {% unless file.path contains 'assets/' %}
+                        {% if file.extname == ".pdf" or site.show_downloads %}
+                            <li><a href="{{ file.path }}">{{ file.path | remove_first: "/" }}</a></li>
+                        {% endif %}
+                    {% endunless %}
                 {% endfor %}
             </ul>
         </main>
@@ -36,4 +38,4 @@
         </footer>
     </div>
 </body>
-</html>
+</html
