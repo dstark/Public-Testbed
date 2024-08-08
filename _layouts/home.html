@@ -11,13 +11,14 @@
     <div class="wrapper">
         <header>
             <h1>{{ site.title }}</h1>
+            <p>For other helpful content, see <a href="https://www.jdavidstark.com">my full main site</a>.
         </header>
 
         <main>
             <ul>
                 <!-- Loop through all pages -->
                 {% for page in site.pages %}
-                    {% unless page.url == "/" or page.url == "/redirects.json" or page.url == "/Scratchpad.html" %}
+                    {% unless page.url == "/" or page.url == "/assets/css/style.css" or page.url == "/redirects.json" or page.url == "/Scratchpad.html" %}
                         <li><a href="{{ page.url }}">{{ page.url }}</a></li>
                     {% endunless %}
                 {% endfor %}
@@ -30,10 +31,6 @@
                 {% endfor %}
             </ul>
         </main>
-        
-        <footer>
-            <p>For more content, see <a href="https://www.jdavidstark.com">my full main site</a>.
-        </footer>
     </div>
 </body>
 </html>
